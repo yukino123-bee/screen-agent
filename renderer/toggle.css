@@ -1,0 +1,12 @@
+html, body { margin: 0; width: 56px; height: 56px; background: transparent; overflow: hidden; user-select: none; }
+#btn {
+  position: absolute; left: 4px; top: 4px; width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(12, 12, 13, .92); color: #c4c4c8; border: 1.5px solid #c4c4c8; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .35); cursor: pointer; touch-action: none;
+}
+#btn:hover { background: #1c1c1e; color: #fff; border-color: #fff; }
+#btn:active { background: #000; }
+#btn.listening { border-color: #fff; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, .55); } 50% { box-shadow: 0 0 0 5px rgba(255, 255, 255, 0); } }
+#btn.working::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px dashed #fff; animation: spin 1.4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

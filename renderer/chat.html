@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:">
+<title>Screen agent</title>
+<link rel="stylesheet" href="chat.css">
+</head>
+<body>
+<header>
+  <div class="lights">
+    <button id="btnClose" class="light close" title="Close" aria-label="Close"></button>
+    <span class="light off"></span><span class="light off"></span>
+  </div>
+  <div class="titles">
+    <div class="title">Screen agent</div>
+    <div class="state" id="state"><span class="dot"></span><span id="stateText">Idle</span></div>
+    <div class="folder" id="folder"></div>
+  </div>
+  <div class="hactions">
+    <button id="btnSnip" class="hbtn">Snip</button>
+    <button id="btnNew" class="hbtn">New</button>
+  </div>
+</header>
+<div class="agentrow">
+  <label for="agentSelect">Agent</label>
+  <select id="agentSelect"></select>
+</div>
+<div class="modes" role="radiogroup" aria-label="Mode">
+  <button class="mode" data-mode="chat" role="radio">Chat</button>
+  <button class="mode" data-mode="plan" role="radio">Plan</button>
+  <button class="mode" data-mode="build" role="radio">Build</button>
+</div>
+<main id="messages"></main>
+<div id="activity" hidden></div>
+<div id="voiceStatus" hidden></div>
+<div id="attachments" hidden></div>
+<footer>
+  <textarea id="input" rows="2" placeholder="Ask about your snip..."></textarea>
+  <div class="btncol">
+    <button id="btnStop" class="danger" hidden>Stop</button>
+    <button id="btnMic" class="mic" title="Talk to the agent" aria-pressed="false"></button>
+    <button id="btnSend" class="primary send" title="Send" aria-label="Send">↑</button>
+  </div>
+</footer>
+<script src="tidy.js"></script>
+<script src="voice.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

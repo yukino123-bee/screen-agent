@@ -1,0 +1,55 @@
+{
+  "name": "screen-agent",
+  "productName": "Screen agent",
+  "version": "1.0.0",
+  "description": "Floating screen helper: snip, chat, and let an AI agent do the work.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/pure.test.js",
+    "lint": "eslint .",
+    "dist": "electron-builder"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "kokoro-js": "^1.2.1"
+  },
+  "build": {
+    "appId": "com.screenagent.app",
+    "productName": "Screen agent",
+    "files": [
+      "main.js",
+      "preload.js",
+      "tts-worker.js",
+      "src/**",
+      "renderer/**",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/onnxruntime-node/**",
+      "node_modules/sharp/**",
+      "node_modules/@img/**"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "rpm"
+      ],
+      "category": "Utility"
+    },
+    "mac": {
+      "target": "dmg"
+    }
+  }
+}
